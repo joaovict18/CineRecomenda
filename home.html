@@ -22,6 +22,50 @@
             </h2>
             <div class="card">
                 <a href=""></a>
+                <div>
+        <style>
+
+            #backDialog::backdrop {
+                background-color: rgba(0, 0, 0, 5);
+                text-align: center;            
+            } 
+            #modalDialog {
+                border: 2px solid #fc0000;
+                
+            }        
+        </style>
+        <button id="openButton">Imagem</button>
+
+        <dialog id="modalDialog">
+            <h2>Descrição</h2>
+            <button id="closeButton">Fechar</button>
+        </dialog>
+
+        <script>
+            const dialog = document.querySelector('#modalDialog');
+            const openButton = document.querySelector('#openButton'); 
+            const closeButton = document.querySelector('#closeButton');
+
+            openButton.addEventListener('click', (e) => {
+                dialog.showModal();
+            });
+            closeButton.addEventListener('click', (e) => {
+            dialog.close(); 
+            });
+
+            dialog.addEventListener('click', (event) => {
+                const rect = dialog.getBoundingClientRect();
+                if (
+                    event.clienitX < rect.left ||
+                    event.clientX > rect.right ||
+                    event.clientY < rect.top ||
+                    event.clientY > rect.bottom
+                ) {
+                    dialog.close();
+                }   
+            });
+        </script>
+    </div>
             </div>
         </div>
         <div class="categoria">
