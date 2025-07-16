@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface ListaUsuarioRepository extends JpaRepository<ListaUsuario, Long> {
-
     List<ListaUsuario> findByUsuarioIdUsuario(Long idUsuario);
+    void deleteByUsuarioIdUsuarioAndFilmeIdFilme(Long idUsuario, Long idFilme);
 }
