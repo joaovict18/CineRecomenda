@@ -33,18 +33,18 @@ public class ListaUsuarioService {
         novoItem.setFilme(filme);
         novoItem.setEstado(estado);
 
-        // A palavra 'return' aqui é essencial para retornar o item salvo
+
         return listaUsuarioRepository.save(novoItem);
     }
 
     public List<ListaUsuario> buscarListaDoUsuario(Long idUsuario) {
-        // A palavra 'return' aqui é essencial para retornar a lista encontrada
+
         return listaUsuarioRepository.findByUsuarioIdUsuario(idUsuario);
     }
 
     @Transactional
     public void removerFilmeDaLista(Long idUsuario, Long idFilme) {
         listaUsuarioRepository.deleteByUsuarioIdUsuarioAndFilmeIdFilme(idUsuario, idFilme);
-        // Este método é 'void' (não retorna nada), então ele não precisa de um 'return'
+
     }
 }
